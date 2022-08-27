@@ -1,2 +1,4 @@
-package com.app.acmedelivery.domainModel;public class ProductCategory {
+package com.app.acmedelivery.domainModel;
+
+public class ProductCategory {
 }

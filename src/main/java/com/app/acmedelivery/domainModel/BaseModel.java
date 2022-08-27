@@ -1,13 +1,9 @@
-package gr.codelearn.spring.showcase.app.domain;
+package com.app.acmedelivery.domainModel;
 
 import lombok.Getter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 
