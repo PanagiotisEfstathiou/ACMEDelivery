@@ -2,6 +2,7 @@ package com.app.acmedelivery.domainModel;
 
 import lombok.*;
 
+import javax.persistence.Entity;
 import java.sql.Time;
 import java.util.Date;
 
@@ -10,14 +11,12 @@ import java.util.Date;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class Order extends BaseModel {
 
-    private OrderItem orderItem;
+    private Cart orderItem;
     private Date date;
     private Time time;
-    private double totalPrice;
     private double discount;
-    private Account account;
-
-
+    private double totalPrice;
 }
