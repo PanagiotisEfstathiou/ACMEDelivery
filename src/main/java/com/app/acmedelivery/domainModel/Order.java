@@ -13,8 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "ORDER")
-@SequenceGenerator(name = "orderIdGenerator", sequenceName = "ORDER_SEQ", initialValue = 1, allocationSize = 1)
+@Table(name = "ORDERS")
+@SequenceGenerator(name = "orderIdGenerator", sequenceName = "ORDER_SEQ", allocationSize = 1)
 public class Order extends BaseModel {
 
     @ManyToOne
@@ -28,6 +28,10 @@ public class Order extends BaseModel {
 
     @Column(nullable = false)
     private BigDecimal totalPrice;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 10, nullable = false)
+    private PaymentMethod paymentMethod;
 
     @Column(nullable = false)
     private String notes;
