@@ -7,12 +7,11 @@ import java.util.List;
 
 @Setter
 @Getter
-@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "ACCOUNT", indexes = {@Index(name = "ACCOUNT_IDX_01", columnList = "email, mobilePhone")})
-@SequenceGenerator(name = "idGenerator", sequenceName = "ACCOUNT_SEQ", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name = "idGenerator", sequenceName = "ACCOUNT_SEQ", allocationSize = 1)
 
 public class Account extends BaseModel {
     @Column(length = 20, nullable = false)
