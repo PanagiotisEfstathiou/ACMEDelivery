@@ -2,21 +2,33 @@ package com.app.acmedelivery.domainModel;
 
 import lombok.*;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
-@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "ORDER")
+@SequenceGenerator(name = "orderIdGenerator", sequenceName = "ORDER_SEQ", initialValue = 1, allocationSize = 1)
 public class Order extends BaseModel {
 
-    private Cart orderItem;
+    @ManyToOne
+    private Account account;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<OrderItem> orderItems;
+
+    @Column(nullable = false)
     private Date date;
-    private Time time;
-    private double discount;
-    private double totalPrice;
+
+    @Column(nullable = false)
+    private BigDecimal totalPrice;
+
+    @Column(nullable = false)
+    private String notes;
 }
