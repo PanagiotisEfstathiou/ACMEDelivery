@@ -10,11 +10,10 @@ import java.util.Set;
 @Setter
 @Getter
 @RequiredArgsConstructor
-@ToString(callSuper = true)
 @Builder
 @Entity
 @Table(name = "STORE")
-@SequenceGenerator(name = "storeIdGenerator", sequenceName = "STORE_SEQ", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name = "storeIdGenerator", sequenceName = "STORE_SEQ", allocationSize = 1)
 public class Store extends BaseModel {
 
     @Column(length=20, nullable=false)
