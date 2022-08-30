@@ -1,9 +1,14 @@
 package com.app.acmedelivery.domainModel;
 
-public class StoreCategory {
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-    private String categoryName;
-    private Store store;
+import java.util.List;
 
 
+public enum StoreCategory {
+    PIZZA,
+    BURGERS,
+    INDIAN,
+    CHINESE
 }

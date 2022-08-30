@@ -9,7 +9,7 @@ import java.util.List;
 @Setter
 public class Cart extends BaseModel{
 
-    private List<OrderItem> orderItems;
+    private List<Product> orderItems;
     private double cartPrice;
     private Account account;
 

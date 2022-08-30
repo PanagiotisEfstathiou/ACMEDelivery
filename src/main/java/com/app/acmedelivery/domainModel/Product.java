@@ -4,10 +4,6 @@ package com.app.acmedelivery.domainModel;
 import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.Index;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.xml.catalog.Catalog;
 
 @Getter
 @Setter
