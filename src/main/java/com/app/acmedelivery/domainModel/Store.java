@@ -10,7 +10,6 @@ import java.util.Set;
 @Setter
 @Getter
 @RequiredArgsConstructor
-@Builder
 @Entity
 @Table(name = "STORE")
 @SequenceGenerator(name = "storeIdGenerator", sequenceName = "STORE_SEQ", allocationSize = 1)

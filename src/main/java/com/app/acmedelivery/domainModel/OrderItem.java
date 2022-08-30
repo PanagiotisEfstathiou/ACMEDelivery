@@ -11,7 +11,6 @@ import javax.persistence.ManyToOne;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
 @Entity
 public class OrderItem extends BaseModel{
     
