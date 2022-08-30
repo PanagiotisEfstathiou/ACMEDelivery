@@ -2,6 +2,8 @@ package com.app.acmedelivery.domainModel;
 
 
 import lombok.*;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
