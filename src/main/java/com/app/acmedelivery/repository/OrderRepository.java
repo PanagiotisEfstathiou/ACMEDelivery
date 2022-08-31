@@ -1,4 +1,9 @@
 package com.app.acmedelivery.repository;
 
-public class OrderRepository {
+import com.app.acmedelivery.domainModel.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface OrderRepository extends JpaRepository<Order, Long> {
 }
