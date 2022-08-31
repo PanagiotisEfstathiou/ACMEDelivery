@@ -1,5 +1,6 @@
 package com.app.acmedelivery.domainModel;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,21 +19,27 @@ import java.util.List;
 public class Order extends BaseModel {
 
     @ManyToOne
+    @NotNull
     private Account account;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @NotNull
     private List<OrderItem> orderItems;
 
     @Column(nullable = false)
-    private Date date;
+    @NotNull
+    private Date timestamp;
 
     @Column(nullable = false)
+    @NotNull
     private BigDecimal totalPrice;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 10, nullable = false)
+    @NotNull
     private PaymentMethod paymentMethod;
 
     @Column(nullable = false)
+    @NotNull
     private String notes;
 }
