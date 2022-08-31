@@ -49,4 +49,16 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
 
         logger.debug("Product[{}] added to Order[{}]", product, order);
     }
+
+    private boolean checkNullability(Order order, Product product) {
+        if (order == null) {
+            logger.warn("Order is null.");
+            return true;
+        }
+        if (product == null) {
+            logger.warn("Product is null.");
+            return true;
+        }
+        return false;
+    }
 }
