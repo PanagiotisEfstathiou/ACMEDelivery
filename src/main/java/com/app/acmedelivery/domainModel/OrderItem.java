@@ -18,7 +18,11 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "ORDER_ITEMS")
 public class OrderItem extends BaseModel{
-    
+
+    @ManyToOne
+    @NotNull
+    private Order order;
+
     @ManyToOne
     @NotNull
     private Product product;
