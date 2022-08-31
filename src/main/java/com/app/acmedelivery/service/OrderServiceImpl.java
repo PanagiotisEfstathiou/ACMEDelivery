@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 @Service
@@ -60,5 +61,21 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void updateItem(Order order, Product product, int quantity) {
+        if (checkNullability(order, product)) {
+            return;
+        }
+
+        order.getOrderItems().removeIf(oi -> oi.getProduct().getSerial().equals(product.getSerial()));
+        order.getOrderItems().add(newOrderItem(order, product, quantity));
+
+        logger.debug("Product[{}] updated in Order[{}]", product, order);
+    }
+
+    private OrderItem newOrderItem(Order order, Product product, int quantity) {
+        return OrderItem.builder().product(product).order(order).quantity(quantity).price(product.getPrice()).build();
     }
 }
