@@ -29,7 +29,7 @@ public class Order extends BaseModel {
 
     @Column(nullable = false)
     @NotNull
-    private Date timestamp;
+    private Date submitDate;
 
     @Column(nullable = false)
     @NotNull
