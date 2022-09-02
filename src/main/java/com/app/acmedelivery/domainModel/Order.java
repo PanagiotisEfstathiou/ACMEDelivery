@@ -19,8 +19,7 @@ import java.util.List;
 @SequenceGenerator(name = "orderIdGenerator", sequenceName = "ORDER_SEQ", allocationSize = 1)
 public class Order extends BaseModel {
 
-    @ManyToOne
-    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Account account;
 
     @OneToMany(cascade = CascadeType.ALL)
