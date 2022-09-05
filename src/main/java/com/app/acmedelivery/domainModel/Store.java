@@ -4,9 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 @Setter
 @Getter
 @RequiredArgsConstructor
@@ -29,5 +26,9 @@ public class Store extends BaseModel {
     @OneToMany
     private List<Product> catalog;
 
+    @Enumerated(EnumType.STRING)
+    @Column(length=15, nullable =false)
+    @ElementCollection
+    private List<Rating> ratings;
 
 }
