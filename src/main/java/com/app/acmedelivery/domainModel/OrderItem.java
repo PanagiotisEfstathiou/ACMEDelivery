@@ -3,10 +3,7 @@ package com.app.acmedelivery.domainModel;
 import com.sun.istack.NotNull;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Setter
@@ -19,11 +16,11 @@ import java.math.BigDecimal;
 @Table(name = "ORDER_ITEMS")
 public class OrderItem extends BaseModel{
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @NotNull
     private Order order;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @NotNull
     private Product product;
 
@@ -31,7 +28,7 @@ public class OrderItem extends BaseModel{
     @NotNull
     private int quantity;
 
-    @Column(nullable = false)
+    @Column(precision = 10, scale = 2, nullable = false)
     @NotNull
     private BigDecimal price;
 
