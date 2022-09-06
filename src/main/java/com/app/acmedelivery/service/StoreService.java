@@ -1,8 +1,16 @@
 package com.app.acmedelivery.service;
 
-import com.app.acmedelivery.domainModel.Store;
+import com.app.acmedelivery.domainModel.*;
 
-public interface StoreService extends BaseService<Store>{
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
 
-    int totalRating();
+public interface StoreService extends BaseService<Store> {
+
+    Store findByStoreName(String StoreName);
+    List<Store> mostFamousStores();
+    List<Store> mostFamousStoresPerCategory();
+
+
 }
