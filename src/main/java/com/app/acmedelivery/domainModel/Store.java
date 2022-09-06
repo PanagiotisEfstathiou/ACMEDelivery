@@ -8,7 +8,7 @@ import java.util.List;
 @Getter
 @RequiredArgsConstructor
 @Entity
-@Table(name = "STORE")
+@Table(name = "STORES")
 @SequenceGenerator(name = "storeIdGenerator", sequenceName = "STORE_SEQ", allocationSize = 1)
 public class Store extends BaseModel {
 
