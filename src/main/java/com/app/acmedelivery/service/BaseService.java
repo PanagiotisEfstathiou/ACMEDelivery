@@ -2,6 +2,8 @@ package com.app.acmedelivery.service;
 
 import com.app.acmedelivery.base.BaseComponent;
 import com.app.acmedelivery.domainModel.BaseModel;
+import com.app.acmedelivery.domainModel.Store;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
@@ -23,4 +25,6 @@ public interface BaseService<T extends BaseModel> {
 	T get(Long id);
 
 	List<T> findAll();
+
+
 }

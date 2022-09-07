@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "ADDRESS")
+@Table(name = "ADDRESSES")
 @SequenceGenerator(name = "storeIdGenerator", sequenceName = "ADDRESS_SEQ", initialValue = 1, allocationSize = 1)
 public class Address extends BaseModel{
     @Column(length=25, nullable = false)
