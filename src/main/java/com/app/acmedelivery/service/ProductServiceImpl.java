@@ -21,4 +21,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
     public Product findBySerial(String serial){
         return productRepository.findBySerial(serial);
     }
+
+
+
 }
