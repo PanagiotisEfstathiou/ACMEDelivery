@@ -3,8 +3,7 @@ package com.app.acmedelivery.domainModel;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Getter
@@ -15,13 +14,14 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Entity
 public class Product extends BaseModel {
-    @Column(length = 30, nullable = false, unique = true)
-    private String serial;
 
     @Column(length = 50, nullable = false)
     private String name;
 
     @Column(precision = 10, scale = 2, nullable = false)
     private BigDecimal price;
+
+    @ManyToOne(optional = false)
+    private Store store;
 
 }
