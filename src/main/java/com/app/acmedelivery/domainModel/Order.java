@@ -22,6 +22,9 @@ public class Order extends BaseModel {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Account account;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private Store store;
+
     @OneToMany(cascade = CascadeType.ALL)
     @NotNull
     private List<OrderItem> orderItems;
