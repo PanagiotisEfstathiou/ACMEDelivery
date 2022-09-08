@@ -11,6 +11,7 @@ import java.util.List;
 
 @Setter
 @Getter
+@ToString(callSuper = true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,15 +26,16 @@ public class Order extends BaseModel {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Store store;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @NotNull
     private List<OrderItem> orderItems;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
     @NotNull
     private Date submitDate;
 
-    @Column(nullable = false)
+    @Column(precision = 10, scale = 2, nullable = false)
     @NotNull
     private BigDecimal totalPrice;
 
@@ -42,7 +44,6 @@ public class Order extends BaseModel {
     @NotNull
     private PaymentMethod paymentMethod;
 
-    @Column(nullable = false)
-    @NotNull
+    @Column
     private String notes;
 }

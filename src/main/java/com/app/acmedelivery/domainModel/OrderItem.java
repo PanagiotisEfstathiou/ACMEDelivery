@@ -26,12 +26,9 @@ public class OrderItem extends BaseModel{
 
     @Column(nullable = false)
     @NotNull
-    private int quantity;
+    private Integer quantity;
 
     @Column(precision = 10, scale = 2, nullable = false)
     @NotNull
     private BigDecimal price;
-
-    @Column
-    private String notes;
 }
