@@ -1,7 +1,19 @@
 package com.app.acmedelivery.domainModel;
 
 public enum ProductCategory {
-    DRINK,
-    FOOD,
-    DESSERT
+    SODAS,
+    ALCOHOL,
+    COFFEE,
+    TEA,
+    DESSERTS,
+    BURGERS,
+    PIZZA,
+    WRAPS,
+    VEGAN,
+    APPETIZERS,
+    SAUCES,
+    SUSHI,
+    NOODLES,
+    SANDWICHES,
+    SALADS
 }
