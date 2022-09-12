@@ -4,9 +4,11 @@ import com.app.acmedelivery.domainModel.Account;
 import com.app.acmedelivery.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
-public class AccountServiceImpl extends BaseServiceImpl<Account>{
+public class AccountServiceImpl extends BaseServiceImpl<Account> implements AccountService{
 
     private final AccountRepository accountRepository;
 
