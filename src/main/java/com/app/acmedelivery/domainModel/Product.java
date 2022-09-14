@@ -26,7 +26,7 @@ public class Product extends BaseModel {
     private BigDecimal price;
 
     @Column(length = 50, nullable = false)
-    private String serial;
+    private String description;
 
 
     @Column(length = 50, nullable = false)
