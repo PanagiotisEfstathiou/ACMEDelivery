@@ -51,6 +51,26 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
         );
         logger.info("Created {}.", pizzaHouse);
 
+        List<Product> hindiplates = List.of(
+                Product.builder().name("India Gate Salad").price(BigDecimal.valueOf(10)).serial("h1").productCategory(ProductCategory.SALADS).build(),
+                Product.builder().name("Masala Peanuts").price(BigDecimal.valueOf(12)).serial("h2").productCategory(ProductCategory.APPETIZERS).build(),
+                Product.builder().name("Mushroom Soup").price(BigDecimal.valueOf(9)).serial("h3").productCategory(ProductCategory.APPETIZERS).build(),
+                Product.builder().name("Bombay Potatoes").price(BigDecimal.valueOf(5)).serial("h4").productCategory(ProductCategory.APPETIZERS).build(),
+                Product.builder().name("Chicken Tikka Masala").price(BigDecimal.valueOf(11)).serial("h5").productCategory(ProductCategory.NOODLES).build()
+        );
+
+        logger.info("Created {} products", productService.createAll(hindiplates).size());
+
+        Store hindilovers = storeService.create(
+                Store.builder().
+                        storeName("Hindi Lovers").
+                        storeCategory(StoreCategory.INDIAN).
+                        storeRegion("Victoria").catalog(hindiplates).
+                        ratings(List.of(Rating.TWO, Rating.THREE)).
+                        build()
+        );
+        logger.info("Created {}.", hindilovers);
+
 
 
 
