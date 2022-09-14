@@ -35,10 +35,7 @@ public class Store extends BaseModel {
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Product> catalog;
 
-    @Enumerated(EnumType.STRING)
-    @Column(length=15, nullable =false)
-    @ElementCollection
-    private List<Rating> ratings;
+
 
 
 
