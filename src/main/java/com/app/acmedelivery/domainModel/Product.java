@@ -28,8 +28,10 @@ public class Product extends BaseModel {
     @Column(length = 50, nullable = false)
     private String serial;
 
+
     @Column(length = 50, nullable = false)
     @NotNull
+    @Enumerated(EnumType.STRING)
     private ProductCategory productCategory;
 
 
