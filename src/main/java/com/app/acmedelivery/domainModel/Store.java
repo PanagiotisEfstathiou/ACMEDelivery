@@ -32,7 +32,7 @@ public class Store extends BaseModel {
 
 
     @Column
-    @OneToMany()
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Product> catalog;
 
     @Enumerated(EnumType.STRING)
