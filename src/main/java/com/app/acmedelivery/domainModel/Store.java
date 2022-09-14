@@ -1,48 +1,45 @@
 package com.app.acmedelivery.domainModel;
 
+import com.app.acmedelivery.domainModel.BaseModel;
+import com.app.acmedelivery.domainModel.Product;
+import com.app.acmedelivery.domainModel.StoreCategory;
 import lombok.*;
-import org.springframework.web.bind.annotation.PostMapping;
-
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Set;
 
 @Setter
 @Getter
 @ToString(callSuper = true)
-@RequiredArgsConstructor
-@Entity
-@Table(name = "STORES")
+@AllArgsConstructor
 @Builder
+@Entity
+@Table(name = "STORES", indexes = {@Index(name = "STORE_IDX_01", columnList = "storeName")})
 @SequenceGenerator(name = "storeIdGenerator", sequenceName = "STORE_SEQ", allocationSize = 1)
+@NoArgsConstructor
 public class Store extends BaseModel {
 
-    @Column(length=20, nullable=false)
-    @NotNull
-    private String name;
+    @Column(nullable=false, unique = true)
+    private String storeName;
 
-    @Column(length=20, nullable = false)
-    @NotNull
-    private String region;
-
-    @Enumerated(EnumType.STRING)
-    @Column(length=15, nullable =false)
-    @NotNull
-    @ElementCollection
-    private List<StoreCategory> storeCategory;
-
-
-    @OneToMany(mappedBy = "store")
-    @NotNull
-    private Set<Product> products;
+    @Column(nullable = false)
+    private String storeRegion;
 
 
     @Enumerated(EnumType.STRING)
     @Column(length=15, nullable =false)
-    @NotNull
+    private StoreCategory storeCategory;
+
+
+    @Column
+    @OneToMany()
+    private List<Product> catalog;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length=15, nullable =false)
     @ElementCollection
     private List<Rating> ratings;
+
+
 
 }

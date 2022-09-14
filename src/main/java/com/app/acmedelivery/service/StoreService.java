@@ -1,16 +1,18 @@
 package com.app.acmedelivery.service;
 
-import com.app.acmedelivery.domainModel.*;
+import com.app.acmedelivery.domainModel.Store;
+import com.app.acmedelivery.service.BaseService;
+import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
+@Service
 public interface StoreService extends BaseService<Store> {
 
     Store findByStoreName(String StoreName);
     List<Store> mostFamousStores();
     List<Store> mostFamousStoresPerCategory();
+
 
 
 }
