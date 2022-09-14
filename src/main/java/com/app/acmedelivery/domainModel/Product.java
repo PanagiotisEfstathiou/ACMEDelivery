@@ -26,12 +26,12 @@ public class Product extends BaseModel {
     private BigDecimal price;
 
     @Column(length = 50, nullable = false)
+    private String serial;
+
+    @Column(length = 50, nullable = false)
     @NotNull
-    @OneToOne(fetch = FetchType.EAGER)
     private ProductCategory productCategory;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    private Store store;
+
 
 }
