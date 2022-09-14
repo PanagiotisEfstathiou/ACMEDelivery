@@ -30,7 +30,7 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
     @Override
     public void run(String... args) throws Exception {
 
-        List<Product> pizzaHouseCatalog = List.of(
+        List<Product> pizzaTowerCatalog = List.of(
                 Product.builder().name("Margherita").price(BigDecimal.valueOf(10)).serial("aaa0").productCategory(ProductCategory.PIZZA).build(),
                 Product.builder().name("Special").price(BigDecimal.valueOf(12)).serial("aaa1").productCategory(ProductCategory.PIZZA).build(),
                 Product.builder().name("Diavola").price(BigDecimal.valueOf(13)).serial("aaa2").productCategory(ProductCategory.PIZZA).build(),
@@ -43,17 +43,17 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
                 Product.builder().name("Mountain Dew").price(BigDecimal.valueOf(2)).serial("aaa9").productCategory(ProductCategory.SODAS).build()
         );
 
-        logger.info("Created {} products", productService.createAll(pizzaHouseCatalog).size());
+        logger.info("Created {} products", productService.createAll(pizzaTowerCatalog).size());
 
-        Store pizzaHouse = storeService.create(
+        Store pizzaTower = storeService.create(
                 Store.builder().
-                storeName("Pizza House").
+                storeName("Tower of Pizza").
                 storeCategory(StoreCategory.PIZZA).
-                storeRegion("Athens").catalog(pizzaHouseCatalog).
+                storeRegion("Athens").catalog(pizzaTowerCatalog).
                 ratings(List.of(Rating.FIVE, Rating.ONE)).
                 build()
         );
-        logger.info("Created {}.", pizzaHouse);
+        logger.info("Created {}.", pizzaTower);
 
         List<Product> suzySushiCatalog = List.of(
                 Product.builder().name("Sashimi").price(BigDecimal.valueOf(10)).serial("baa0").productCategory(ProductCategory.SUSHI).build(),
