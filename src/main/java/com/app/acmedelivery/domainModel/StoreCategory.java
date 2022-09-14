@@ -5,5 +5,6 @@ public enum StoreCategory {
     PIZZA,
     BURGERS,
     SUSHI,
-    BREAKFAST
+    BREAKFAST,
+    INDIAN
 }
