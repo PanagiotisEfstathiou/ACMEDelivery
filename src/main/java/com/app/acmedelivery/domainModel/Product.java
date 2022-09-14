@@ -28,6 +28,10 @@ public class Product extends BaseModel {
     @Column(length = 50, nullable = false)
     private String description;
 
+    @NotNull
+    @ManyToOne
+    private Store store;
+
 
     @Column(length = 50, nullable = false)
     @NotNull
