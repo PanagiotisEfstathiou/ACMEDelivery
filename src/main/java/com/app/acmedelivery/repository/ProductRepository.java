@@ -8,5 +8,5 @@ import java.util.Set;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    Product findBySerial(String serial);
+    Product findByDescription(String description);
 }

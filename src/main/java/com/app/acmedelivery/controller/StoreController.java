@@ -15,7 +15,7 @@ public class StoreController extends AbstractController<Store>{
 
     private final StoreService storeService;
     @Override
-    protected BaseService<Store> getBaseService() {
+    public BaseService<Store> getBaseService() {
         return storeService;
     }
 }

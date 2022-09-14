@@ -10,7 +10,7 @@ import java.util.Set;
 
 public interface ProductService extends  BaseService<Product> {
 
-    Product findBySerial(String serial);
+    Product findByDescription(String description);
 
 
 }
