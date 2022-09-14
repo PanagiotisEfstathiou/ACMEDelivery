@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Setter
@@ -28,6 +29,12 @@ public class Account extends BaseModel {
     @Pattern(regexp = "^[a-zA-Z]+$"
             , message = "Your last name contains special characters")
     private String lastName;
+
+    @Column(length = 50)
+    @Size(max = 50)
+    private String address;
+
+
 
     @Column(length = 50, nullable = false, unique = true)
     @NotNull
