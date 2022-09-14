@@ -42,7 +42,6 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
                 storeName("Tower of Pizza").
                 storeCategory(StoreCategory.PIZZA).
                 storeRegion("Athens").catalog(pizzaTowerCatalog).
-                ratings(List.of(Rating.FIVE, Rating.ONE)).
                 build();
 
         pizzaTowerCatalog.forEach(product -> product.setStore(pizzaTower));
