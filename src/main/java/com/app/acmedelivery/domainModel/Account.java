@@ -11,6 +11,7 @@ import java.util.List;
 @Setter
 @Getter
 @ToString(callSuper = true)
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
