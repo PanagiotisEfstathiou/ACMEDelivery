@@ -21,21 +21,20 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
     @Override
     public void run(String... args) throws Exception {
 
-        //@formater:off
+        //@formatter:off
         List<Product> pizzaTowerCatalog = List.of(
-                Product.builder().name("Margherita").price(BigDecimal.valueOf(10)).description("aaa0").productCategory(ProductCategory.PIZZA).build(),
-                Product.builder().name("Special").price(BigDecimal.valueOf(12)).description("aaa1").productCategory(ProductCategory.PIZZA).build(),
-                Product.builder().name("Diavola").price(BigDecimal.valueOf(13)).description("aaa2").productCategory(ProductCategory.PIZZA).build(),
-                Product.builder().name("Pepperoni").price(BigDecimal.valueOf(11)).description("aaa3").productCategory(ProductCategory.PIZZA).build(),
-                Product.builder().name("Mushroom").price(BigDecimal.valueOf(11)).description("aaa4").productCategory(ProductCategory.PIZZA).build(),
-                Product.builder().name("Coca Cola").price(BigDecimal.valueOf(1.5)).description("baa5").productCategory(ProductCategory.SODAS).build(),
-                Product.builder().name("Pepsi").price(BigDecimal.valueOf(1.5)).description("aaa6").productCategory(ProductCategory.SODAS).build(),
-                Product.builder().name("Fanta").price(BigDecimal.valueOf(1.5)).description("aaa7").productCategory(ProductCategory.SODAS).build(),
-                Product.builder().name("Sprite").price(BigDecimal.valueOf(1.5)).description("aaa8").productCategory(ProductCategory.SODAS).build(),
-                Product.builder().name("Mountain Dew").price(BigDecimal.valueOf(2)).description("aaa9").productCategory(ProductCategory.SODAS).build()
+                Product.builder().name("Margherita").price(BigDecimal.valueOf(10)).description("Πίτσα με σάλτσα ντομάτας & τυρί Gouda").productCategory(ProductCategory.PIZZA).build(),
+                Product.builder().name("Special").price(BigDecimal.valueOf(12)).description("Πίτσα με λευκή σάλτσα, τυρί Gouda, λευκές νιφάδες τυριού, χοιρινό καπνιστό, μπέικον, μανιτάρια, φρέσκια ντομάτα & κρεμμύδι").productCategory(ProductCategory.PIZZA).build(),
+                Product.builder().name("Diavola").price(BigDecimal.valueOf(13)).description("σάλτσα τομάτα, πικάντικο σαλάμι, πράσινες πιπεριές").productCategory(ProductCategory.PIZZA).build(),
+                Product.builder().name("Pepperoni").price(BigDecimal.valueOf(11)).description("Πίτσα με σάλτσα ντοματας, τυρί Gouda & τριπλό πεπερόνι").productCategory(ProductCategory.PIZZA).build(),
+                Product.builder().name("Greek").price(BigDecimal.valueOf(11)).description("Πίτσα με σάλτσα ντομάτας, τυρί Gouda, λευκές νιφάδες τυριού, κρεμμύδι, ελιές, πράσινη πιπεριά & φρέσκια ντομάτα").productCategory(ProductCategory.PIZZA).build(),
+                Product.builder().name("Coca Cola").price(BigDecimal.valueOf(1.5)).description("330ml").productCategory(ProductCategory.SODAS).build(),
+                Product.builder().name("Pepsi").price(BigDecimal.valueOf(1.5)).description("330ml").productCategory(ProductCategory.SODAS).build(),
+                Product.builder().name("Fanta").price(BigDecimal.valueOf(1.5)).description("330ml").productCategory(ProductCategory.SODAS).build(),
+                Product.builder().name("Sprite").price(BigDecimal.valueOf(1.5)).description("330ml").productCategory(ProductCategory.SODAS).build(),
+                Product.builder().name("Mountain Dew").price(BigDecimal.valueOf(2)).description("500ml").productCategory(ProductCategory.SODAS).build()
         );
 
-//        logger.info("Created {} products", productService.createAll(pizzaTowerCatalog).size());
 
 
         Store pizzaTower = Store.builder().
@@ -47,32 +46,31 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
         pizzaTowerCatalog.forEach(product -> product.setStore(pizzaTower));
 
        storeService.create(pizzaTower);
-//        logger.info("Created {}.", pizzaTower);
-//
-//        List<Product> suzySushiCatalog = List.of(
-//                Product.builder().name("Sashimi").price(BigDecimal.valueOf(10)).serial("baa0").productCategory(ProductCategory.SUSHI).build(),
-//                Product.builder().name("Nigiri").price(BigDecimal.valueOf(12)).serial("baa1").productCategory(ProductCategory.SUSHI).build(),
-//                Product.builder().name("Chicken Noodles").price(BigDecimal.valueOf(8.5)).serial("baa2").productCategory(ProductCategory.NOODLES).build(),
-//                Product.builder().name("Shrimp Noodles").price(BigDecimal.valueOf(9)).serial("baa3").productCategory(ProductCategory.NOODLES).build(),
-//                Product.builder().name("Vegan Noodles").price(BigDecimal.valueOf(7.5)).serial("baa4").productCategory(ProductCategory.VEGAN).build(),
-//                Product.builder().name("Wasabi Mayo").price(BigDecimal.valueOf(0.5)).serial("baa5").productCategory(ProductCategory.SAUCES).build(),
-//                Product.builder().name("Sake").price(BigDecimal.valueOf(8)).serial("baa6").productCategory(ProductCategory.ALCOHOL).build(),
-//                Product.builder().name("Beer").price(BigDecimal.valueOf(4)).serial("baa7").productCategory(ProductCategory.ALCOHOL).build(),
-//                Product.builder().name("Sprite").price(BigDecimal.valueOf(1.5)).serial("baa8").productCategory(ProductCategory.SODAS).build(),
-//                Product.builder().name("Mountain Dew").price(BigDecimal.valueOf(2)).serial("baa9").productCategory(ProductCategory.SODAS).build()
-//        );
-//
-//        logger.info("Created {} products", productService.createAll(suzySushiCatalog).size());
-//
-//        Store suzySushi = storeService.create(
-//                Store.builder().
-//                        storeName("Suzy Sushi").
-//                        storeCategory(StoreCategory.SUSHI).
-//                        storeRegion("Thessaloniki").catalog(suzySushiCatalog).
-//                        ratings(List.of(Rating.FIVE, Rating.ONE, Rating.TWO, Rating.THREE, Rating.FOUR)).
-//                        build()
-//        );
-//        logger.info("Created {}.", suzySushi);
+
+        List<Product> suzySushiCatalog = List.of(
+                Product.builder().name("Sashimi").price(BigDecimal.valueOf(10)).description("Φιλέτο Τόνου").productCategory(ProductCategory.SUSHI).build(),
+                Product.builder().name("Nigiri").price(BigDecimal.valueOf(12)).description("Ρύζι με φιλέτο σολομού").productCategory(ProductCategory.SUSHI).build(),
+                Product.builder().name("Chicken Noodles").price(BigDecimal.valueOf(8.5)).description("Νουντλς με " +
+																											 "κοτόπουλο").productCategory(ProductCategory.NOODLES).build(),
+                Product.builder().name("Shrimp Noodles").price(BigDecimal.valueOf(9)).description("Νουτνλς με " +
+																										  "γαρίδες").productCategory(ProductCategory.NOODLES).build(),
+                Product.builder().name("Vegan Noodles").price(BigDecimal.valueOf(7.5)).description("Νουντλς Βίγκαν").productCategory(ProductCategory.VEGAN).build(),
+                Product.builder().name("Wasabi Mayo").price(BigDecimal.valueOf(0.5)).description("Μαγιονέζα Wasabi").productCategory(ProductCategory.SAUCES).build(),
+                Product.builder().name("Sake").price(BigDecimal.valueOf(8)).description("Ιαπωνικό αλκοολικό ποτό " +
+																								"ρυζιού 250ml").productCategory(ProductCategory.ALCOHOL).build(),
+                Product.builder().name("Beer").price(BigDecimal.valueOf(4)).description("500ml").productCategory(ProductCategory.ALCOHOL).build(),
+                Product.builder().name("Sprite").price(BigDecimal.valueOf(1.5)).description("330ml").productCategory(ProductCategory.SODAS).build(),
+                Product.builder().name("Mountain Dew").price(BigDecimal.valueOf(2)).description("500ml").productCategory(ProductCategory.SODAS).build()
+        );
+
+        Store suzySushi = Store.builder().
+                        storeName("Suzy Sushi").
+                        storeCategory(StoreCategory.SUSHI).
+                        storeRegion("Thessaloniki").catalog(suzySushiCatalog).
+                        build();
+        suzySushiCatalog.forEach(product -> product.setStore(suzySushi));
+
+		storeService.create(suzySushi);
 //
 //        List<Product> americanBurgersCatalog = List.of(
 //                Product.builder().name("Hamburger").price(BigDecimal.valueOf(2.95)).serial("baa0").productCategory(ProductCategory.BURGERS).build(),
@@ -144,7 +142,7 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
 //                        build()
 //        );
 //        logger.info("Created {}.", hindilovers);
-//        //@formater:on
+//        //@formatter:on
 //
 //
     }

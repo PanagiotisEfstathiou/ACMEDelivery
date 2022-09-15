@@ -25,7 +25,7 @@ public class Product extends BaseModel {
     @NotNull
     private BigDecimal price;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 150, nullable = false)
     private String description;
 
     @NotNull
