@@ -14,7 +14,7 @@ public abstract class BaseModel implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idGenerator")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator="idGenerator")
 	@Column(updatable = false)
 	private Long id;
 }

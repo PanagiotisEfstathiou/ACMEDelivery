@@ -3,6 +3,7 @@ package com.app.acmedelivery.domainModel;
 import com.app.acmedelivery.domainModel.BaseModel;
 import com.app.acmedelivery.domainModel.Product;
 import com.app.acmedelivery.domainModel.StoreCategory;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "STORES", indexes = {@Index(name = "STORE_IDX_01", columnList = "storeName")})
-@SequenceGenerator(name = "storeIdGenerator", sequenceName = "STORE_SEQ", allocationSize = 1)
+@SequenceGenerator(name = "idGenerator", sequenceName = "STORE_SEQ", allocationSize = 1)
 @NoArgsConstructor
 public class Store extends BaseModel {
 
@@ -32,7 +33,7 @@ public class Store extends BaseModel {
 
 
     @Column
-    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Product> catalog;
 
 

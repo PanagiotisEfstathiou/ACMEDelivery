@@ -1,6 +1,7 @@
 package com.app.acmedelivery.domainModel;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Entity
 @Table(name = "PRODUCTS")
+@SequenceGenerator(name = "idGenerator", sequenceName = "Product_SEQ", initialValue = 1, allocationSize = 1)
 public class Product extends BaseModel {
 
     @Column(length = 50, nullable = false)
@@ -30,6 +32,7 @@ public class Product extends BaseModel {
 
     @NotNull
     @ManyToOne
+	@JsonIgnore
     private Store store;
 
 
