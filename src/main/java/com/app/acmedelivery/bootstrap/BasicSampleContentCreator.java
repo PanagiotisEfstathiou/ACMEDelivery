@@ -68,82 +68,78 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
                         storeCategory(StoreCategory.SUSHI).
                         storeRegion("Thessaloniki").catalog(suzySushiCatalog).
                         build();
+
         suzySushiCatalog.forEach(product -> product.setStore(suzySushi));
 
 		storeService.create(suzySushi);
-//
-//        List<Product> americanBurgersCatalog = List.of(
-//                Product.builder().name("Hamburger").price(BigDecimal.valueOf(2.95)).serial("baa0").productCategory(ProductCategory.BURGERS).build(),
-//                Product.builder().name("Cheeseburger").price(BigDecimal.valueOf(3.15)).serial("baa1").productCategory(ProductCategory.BURGERS).build(),
-//                Product.builder().name("Onion Rings").price(BigDecimal.valueOf(3.1)).serial("baa2").productCategory(ProductCategory.APPETIZERS).build(),
-//                Product.builder().name("Chicken Wings").price(BigDecimal.valueOf(5.4)).serial("baa3").productCategory(ProductCategory.APPETIZERS).build(),
-//                Product.builder().name("Caesars").price(BigDecimal.valueOf(6.9)).serial("baa4").productCategory(ProductCategory.SALADS).build(),
-//                Product.builder().name("BBQ sauce").price(BigDecimal.valueOf(0.5)).serial("baa5").productCategory(ProductCategory.SAUCES).build(),
-//                Product.builder().name("Chicken Wrap").price(BigDecimal.valueOf(4.2)).serial("baa6").productCategory(ProductCategory.WRAPS).build(),
-//                Product.builder().name("Beer").price(BigDecimal.valueOf(4)).serial("baa7").productCategory(ProductCategory.ALCOHOL).build(),
-//                Product.builder().name("Coca Cola").price(BigDecimal.valueOf(1.8)).serial("baa8").productCategory(ProductCategory.SODAS).build(),
-//                Product.builder().name("Sprite").price(BigDecimal.valueOf(1.7)).serial("baa9").productCategory(ProductCategory.SODAS).build()
-//        );
-//
-//        logger.info("Created {} products", productService.createAll(americanBurgersCatalog).size());
-//
-//        Store americanBurgers = storeService.create(
-//                Store.builder().
-//                        storeName("American Burgers").
-//                        storeCategory(StoreCategory.BURGERS).
-//                        storeRegion("Athens").catalog(americanBurgersCatalog).
-//                        ratings(List.of(Rating.FIVE, Rating.ONE, Rating.TWO, Rating.THREE, Rating.FOUR)).
-//                        build()
-//        );
-//        logger.info("Created {}.", americanBurgers);
-//
-//        List<Product> morningGloryCatalog = List.of(
-//                Product.builder().name("Turkey Sandwich").price(BigDecimal.valueOf(3.4)).serial("baa0").productCategory(ProductCategory.SANDWICHES).build(),
-//                Product.builder().name("Caesars").price(BigDecimal.valueOf(5.6)).serial("baa1").productCategory(ProductCategory.SALADS).build(),
-//                Product.builder().name("Espresso").price(BigDecimal.valueOf(2.1)).serial("baa2").productCategory(ProductCategory.COFFEE).build(),
-//                Product.builder().name("Cappuccino").price(BigDecimal.valueOf(2.2)).serial("baa3").productCategory(ProductCategory.COFFEE).build(),
-//                Product.builder().name("Greek Coffee").price(BigDecimal.valueOf(2.1)).serial("baa4").productCategory(ProductCategory.COFFEE).build(),
-//                Product.builder().name("Freddo Cappuccino").price(BigDecimal.valueOf(2.3)).serial("baa5").productCategory(ProductCategory.COFFEE).build(),
-//                Product.builder().name("Green Tea").price(BigDecimal.valueOf(1.8)).serial("baa6").productCategory(ProductCategory.TEA).build(),
-//                Product.builder().name("Apple Pie").price(BigDecimal.valueOf(1.4)).serial("baa7").productCategory(ProductCategory.DESSERTS).build(),
-//                Product.builder().name("Milkshake Vanilla").price(BigDecimal.valueOf(2.95)).serial("baa8").productCategory(ProductCategory.DESSERTS).build(),
-//                Product.builder().name("Milkshake Choco").price(BigDecimal.valueOf(2.95)).serial("baa9").productCategory(ProductCategory.DESSERTS).build()
-//        );
-//
-//        logger.info("Created {} products", productService.createAll(morningGloryCatalog).size());
-//
-//        Store morningGlory = storeService.create(
-//                Store.builder().
-//                        storeName("Morning Glory").
-//                        storeCategory(StoreCategory.BREAKFAST).
-//                        storeRegion("Patra").catalog(morningGloryCatalog).
-//                        ratings(List.of(Rating.FIVE, Rating.ONE, Rating.TWO, Rating.THREE, Rating.FOUR)).
-//                        build()
-//        );
-//        logger.info("Created {}.", morningGlory);
-//
-//
-//        List<Product> hindiplates = List.of(
-//                Product.builder().name("India Gate Salad").price(BigDecimal.valueOf(10)).serial("h1").productCategory(ProductCategory.SALADS).build(),
-//                Product.builder().name("Masala Peanuts").price(BigDecimal.valueOf(12)).serial("h2").productCategory(ProductCategory.APPETIZERS).build(),
-//                Product.builder().name("Mushroom Soup").price(BigDecimal.valueOf(9)).serial("h3").productCategory(ProductCategory.APPETIZERS).build(),
-//                Product.builder().name("Bombay Potatoes").price(BigDecimal.valueOf(5)).serial("h4").productCategory(ProductCategory.APPETIZERS).build(),
-//                Product.builder().name("Chicken Tikka Masala").price(BigDecimal.valueOf(11)).serial("h5").productCategory(ProductCategory.NOODLES).build()
-//        );
-//
-//        logger.info("Created {} products", productService.createAll(hindiplates).size());
-//
-//        Store hindilovers = storeService.create(
-//                Store.builder().
-//                        storeName("Hindi Lovers").
-//                        storeCategory(StoreCategory.INDIAN).
-//                        storeRegion("Victoria").catalog(hindiplates).
-//                        ratings(List.of(Rating.TWO, Rating.THREE)).
-//                        build()
-//        );
-//        logger.info("Created {}.", hindilovers);
-//        //@formatter:on
-//
-//
+
+        List<Product> americanBurgersCatalog = List.of(
+                Product.builder().name("Hamburger").price(BigDecimal.valueOf(2.95)).description("Με ζουμερό μπιφτέκι, pickle sauce, μουστάρδα & ketchup").productCategory(ProductCategory.BURGERS).build(),
+                Product.builder().name("Cheeseburger").price(BigDecimal.valueOf(3.15)).description("Με τυρί cheddar πάνω σε σε λαχαριστό μπιφτέκι, pickle sauce, μουστάρδα & ketchup").productCategory(ProductCategory.BURGERS).build(),
+                Product.builder().name("Onion Rings").price(BigDecimal.valueOf(3.1)).description("Τραγανές ροδέλες κρεμμυδιού").productCategory(ProductCategory.APPETIZERS).build(),
+                Product.builder().name("Chicken Wings").price(BigDecimal.valueOf(5.4)).description("Ελαφρώς πικάντικες φτερούγες κοτόπουλου. Συνοδεύονται από Hellmann`s Original BBQ sauce").productCategory(ProductCategory.APPETIZERS).build(),
+                Product.builder().name("Caesars").price(BigDecimal.valueOf(6.9)).description("Σαλάτα με μαρούλι, ζουμερές λωρίδες κοτόπουλου, μαρούλι, καλαμπόκι, κρουτόν, τριμμένο τυρί & vinaigrette ελαιόλαδο").productCategory(ProductCategory.SALADS).build(),
+                Product.builder().name("BBQ sauce").price(BigDecimal.valueOf(0.5)).description("30gr").productCategory(ProductCategory.SAUCES).build(),
+                Product.builder().name("Chicken Wrap").price(BigDecimal.valueOf(4.2)).description("Με τραγανό παναρισμένο κοτόπουλο, ντομάτα, μαρούλι, μουστάρδα & Goody`s sauce").productCategory(ProductCategory.WRAPS).build(),
+                Product.builder().name("Beer").price(BigDecimal.valueOf(4)).description("330ml").productCategory(ProductCategory.ALCOHOL).build(),
+                Product.builder().name("Coca Cola").price(BigDecimal.valueOf(1.8)).description("330ml").productCategory(ProductCategory.SODAS).build(),
+                Product.builder().name("Sprite").price(BigDecimal.valueOf(1.7)).description("330ml").productCategory(ProductCategory.SODAS).build()
+        );
+
+
+        Store americanBurgers = Store.builder().
+                        storeName("American Burgers").
+                        storeCategory(StoreCategory.BURGERS).
+                        storeRegion("Athens").catalog(americanBurgersCatalog).
+                        build();
+
+		americanBurgersCatalog.forEach(product -> product.setStore(americanBurgers));
+
+		storeService.create(americanBurgers);
+
+        List<Product> morningGloryCatalog = List.of(
+                Product.builder().name("Turkey Sandwich").price(BigDecimal.valueOf(3.4)).description("baa0").productCategory(ProductCategory.SANDWICHES).build(),
+                Product.builder().name("Caesars").price(BigDecimal.valueOf(5.6)).description("baa1").productCategory(ProductCategory.SALADS).build(),
+                Product.builder().name("Espresso").price(BigDecimal.valueOf(2.1)).description("baa2").productCategory(ProductCategory.COFFEE).build(),
+                Product.builder().name("Cappuccino").price(BigDecimal.valueOf(2.2)).description("baa3").productCategory(ProductCategory.COFFEE).build(),
+                Product.builder().name("Greek Coffee").price(BigDecimal.valueOf(2.1)).description("baa4").productCategory(ProductCategory.COFFEE).build(),
+                Product.builder().name("Freddo Cappuccino").price(BigDecimal.valueOf(2.3)).description("baa5").productCategory(ProductCategory.COFFEE).build(),
+                Product.builder().name("Green Tea").price(BigDecimal.valueOf(1.8)).description("baa6").productCategory(ProductCategory.TEA).build(),
+                Product.builder().name("Apple Pie").price(BigDecimal.valueOf(1.4)).description("baa7").productCategory(ProductCategory.DESSERTS).build(),
+                Product.builder().name("Milkshake Vanilla").price(BigDecimal.valueOf(2.95)).description("baa8").productCategory(ProductCategory.DESSERTS).build(),
+                Product.builder().name("Milkshake Choco").price(BigDecimal.valueOf(2.95)).description("baa9").productCategory(ProductCategory.DESSERTS).build()
+        );
+
+        Store morningGlory = Store.builder().
+                        storeName("Morning Glory").
+                        storeCategory(StoreCategory.BREAKFAST).
+                        storeRegion("Patra").catalog(morningGloryCatalog).
+                        build();
+
+		morningGloryCatalog.forEach(product -> product.setStore(morningGlory));
+
+		storeService.create(morningGlory);
+
+
+        List<Product> hindiLoversCatalog = List.of(
+                Product.builder().name("India Gate Salad").price(BigDecimal.valueOf(10)).description("h1").productCategory(ProductCategory.SALADS).build(),
+                Product.builder().name("Masala Peanuts").price(BigDecimal.valueOf(12)).description("h2").productCategory(ProductCategory.APPETIZERS).build(),
+                Product.builder().name("Mushroom Soup").price(BigDecimal.valueOf(9)).description("h3").productCategory(ProductCategory.APPETIZERS).build(),
+                Product.builder().name("Bombay Potatoes").price(BigDecimal.valueOf(5)).description("h4").productCategory(ProductCategory.APPETIZERS).build(),
+                Product.builder().name("Chicken Tikka Masala").price(BigDecimal.valueOf(11)).description("h5").productCategory(ProductCategory.NOODLES).build()
+        );
+
+        Store hindilovers = Store.builder().
+                        storeName("Hindi Lovers").
+                        storeCategory(StoreCategory.INDIAN).
+                        storeRegion("Victoria").catalog(hindiLoversCatalog).
+                        build();
+
+		hindiLoversCatalog.forEach(product -> product.setStore(hindilovers));
+
+		storeService.create(hindilovers);
+        //@formatter:on
+
+
     }
 }
