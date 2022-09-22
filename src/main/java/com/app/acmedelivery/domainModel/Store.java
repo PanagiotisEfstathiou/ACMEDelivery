@@ -4,6 +4,7 @@ import com.app.acmedelivery.domainModel.BaseModel;
 import com.app.acmedelivery.domainModel.Product;
 import com.app.acmedelivery.domainModel.StoreCategory;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -35,6 +36,11 @@ public class Store extends BaseModel {
     @Column
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Product> catalog;
+
+	@Column
+	@OneToMany(mappedBy = "store",fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Order> orders;
 
 
 
