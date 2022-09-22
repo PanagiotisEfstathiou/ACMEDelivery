@@ -135,15 +135,15 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
                 Product.builder().name("Chicken Tikka Masala").price(BigDecimal.valueOf(11)).description("h5").productCategory(ProductCategory.NOODLES).build()
         );
 
-        Store hindilovers = Store.builder().
-                        storeName("Hindi Lovers").
+        Store eatHindi = Store.builder().
+                        storeName("eat Hindi").
                         storeCategory(StoreCategory.INDIAN).
                         storeRegion("Victoria").catalog(hindiLoversCatalog).
                         build();
 
-		hindiLoversCatalog.forEach(product -> product.setStore(hindilovers));
+		hindiLoversCatalog.forEach(product -> product.setStore(eatHindi));
 
-		storeService.create(hindilovers);
+		storeService.create(eatHindi);
 
 		Product product = Product.builder().name("Hamburger").price(BigDecimal.valueOf(2.95)).description("Με ζουμερό" +
 																												  " μπιφτέκι, pickle sauce, μουστάρδα & ketchup").productCategory(ProductCategory.BURGERS).build();
