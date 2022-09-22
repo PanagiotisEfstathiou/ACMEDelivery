@@ -1,5 +1,6 @@
 package com.app.acmedelivery.domainModel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -35,8 +36,6 @@ public class Account extends BaseModel {
     @Size(max = 50)
     private String address;
 
-
-
     @Column(length = 50, nullable = false, unique = true)
     @NotNull
     @Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
@@ -53,5 +52,11 @@ public class Account extends BaseModel {
     @NotNull
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
             , message = "Minimum eight characters, at least one letter and one number")
+	@JsonIgnore
     private String password;
+
+	@Column
+	@OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnore
+	private List<Order> orders;
 }
