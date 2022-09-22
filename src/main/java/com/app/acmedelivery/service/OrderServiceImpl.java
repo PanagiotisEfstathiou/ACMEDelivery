@@ -25,8 +25,8 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
     }
 
     @Override
-    public Order initiateOrder(Account account){
-        return Order.builder().account(account).orderItems(new ArrayList<>()).build();
+    public Order initiateOrder(Account account, Store store){
+        return Order.builder().account(account).store(store).orderItems(new ArrayList<>()).build();
     }
 
     @Override
@@ -47,7 +47,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         }
 
         if (!increasedQuantity) {
-            order.getOrderItems().add(newOrderItem(order, product, quantity));
+            order.getOrderItems().add(newOrderItem(order, product, quantity, product.getPrice()));
         }
 
         logger.debug("Product[{}] added to Order[{}]", product, order);
@@ -72,12 +72,12 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         }
 
         order.getOrderItems().removeIf(oi -> oi.getProduct().getDescription().equals(product.getDescription()));
-        order.getOrderItems().add(newOrderItem(order, product, quantity));
+        order.getOrderItems().add(newOrderItem(order, product, quantity,product.getPrice()));
 
         logger.debug("Product[{}] updated in Order[{}]", product, order);
     }
 
-    private OrderItem newOrderItem(Order order, Product product, int quantity) {
+    private OrderItem newOrderItem(Order order, Product product, int quantity, BigDecimal price) {
         return OrderItem.builder().product(product).order(order).quantity(quantity).price(product.getPrice()).build();
     }
 
@@ -93,8 +93,19 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         logger.debug("Product[{}] removed from Order[{}]", product, order);
     }
 
+	public BigDecimal calculateTotalPrice(List<OrderItem> orderItems){
+		BigDecimal sum = BigDecimal.ZERO;
+		for (OrderItem orderItem : orderItems) {
+
+			BigDecimal initialPrice = orderItem.getPrice();
+			float res = sum.floatValue() + initialPrice.floatValue() * orderItem.getQuantity();
+			sum = BigDecimal.valueOf(res);
+		}
+		return sum;
+	}
+
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
-    public Order checkout(Order order, PaymentMethod paymentMethod, BigDecimal orderTotalPrice) {
+    public Order checkout(Order order, PaymentMethod paymentMethod) {
         if (!validate(order)) {
             logger.warn("Order should have Account, order items, payment type and cost defined before being able to " +
                     "checkout the order.");
@@ -104,7 +115,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         // Set all order fields with proper values
         order.setPaymentMethod(paymentMethod);
         order.setSubmitDate(new Date());
-        order.setTotalPrice(orderTotalPrice);
+        order.setTotalPrice(calculateTotalPrice(order.getOrderItems()));
         return create(order);
     }
     private boolean validate(Order order) {
