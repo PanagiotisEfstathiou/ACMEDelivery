@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -38,8 +39,7 @@ public class Account extends BaseModel {
 
     @Column(length = 50, nullable = false, unique = true)
     @NotNull
-    @Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
-            , message = "Please input valid email")
+    @Email(message = "Please input valid email")
     private String email;
 
     @Column(length = 15, nullable = false, unique = true)
