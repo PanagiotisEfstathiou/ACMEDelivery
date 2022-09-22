@@ -1,5 +1,7 @@
 package com.app.acmedelivery.domainModel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sun.istack.NotNull;
 import lombok.*;
 
@@ -17,31 +19,33 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "ORDERS")
-@SequenceGenerator(name = "orderIdGenerator", sequenceName = "ORDER_SEQ", allocationSize = 1)
+@SequenceGenerator(name = "idGenerator", sequenceName = "ORDER_SEQ", allocationSize = 1)
 public class Order extends BaseModel {
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+	@NotNull
     private Account account;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+	@NotNull
     private Store store;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @NotNull
     private List<OrderItem> orderItems;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
-    @NotNull
     private Date submitDate;
 
-    @Column(precision = 10, scale = 2, nullable = false)
-    @NotNull
+    @Column(precision = 10, scale = 2)
     private BigDecimal totalPrice;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 10, nullable = false)
-    @NotNull
+    @Column(length = 10)
     private PaymentMethod paymentMethod;
 
     @Column
