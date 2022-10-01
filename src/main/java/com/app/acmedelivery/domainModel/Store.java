@@ -5,11 +5,15 @@ import com.app.acmedelivery.domainModel.Product;
 import com.app.acmedelivery.domainModel.StoreCategory;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -33,17 +37,15 @@ public class Store extends BaseModel {
     private StoreCategory storeCategory;
 
 
+
+	@JsonManagedReference("catalog")
     @Column
-    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Product> catalog;
 
+	@JsonIgnore
 	@Column
 	@OneToMany(mappedBy = "store",fetch = FetchType.LAZY)
-	@JsonIgnore
 	private List<Order> orders;
-
-
-
-
 
 }
