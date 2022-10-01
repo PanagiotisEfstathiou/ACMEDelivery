@@ -14,8 +14,7 @@ public interface StoreService extends BaseService<Store> {
     Store findByName(String storeName);
 
 	Store findByCategory(StoreCategory storeCategory);
-    List<Store> mostFamousStores();
-    List<Store> mostFamousStoresPerCategory();
+
 
 	Store getLazy(Long id);
 

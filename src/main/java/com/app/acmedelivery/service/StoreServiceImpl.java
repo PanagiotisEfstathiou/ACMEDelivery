@@ -23,19 +23,6 @@ public class StoreServiceImpl extends BaseServiceImpl<Store> implements StoreSer
     }
 
 
-
-
-    @Override
-    public List<Store> mostFamousStores() {
-        return storeRepository.mostFamousStores();
-    }
-
-    @Override
-    public List<Store> mostFamousStoresPerCategory() {
-        return storeRepository.mostFamousStoresPerCategory();
-    }
-
-
 	public Store getLazy(Long id){
 		 Optional<Store> store = storeRepository.getLazy(id);
 		if (store.isPresent()){
