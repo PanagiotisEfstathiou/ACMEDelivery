@@ -10,6 +10,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -19,7 +20,6 @@ import java.util.List;
 @Entity
 @Table(name = "ACCOUNTS", indexes = {@Index(name = "ACCOUNT_IDX_01", columnList = "email, mobilePhone")})
 @SequenceGenerator(name = "idGenerator", sequenceName = "ACCOUNT_SEQ", initialValue = 1, allocationSize = 1)
-
 public class Account extends BaseModel {
     @Column(length = 20, nullable = false)
     @NotNull
@@ -56,7 +56,7 @@ public class Account extends BaseModel {
     private String password;
 
 	@Column
-	@OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Order> orders;
 }
