@@ -1,12 +1,9 @@
 package com.app.acmedelivery.service;
 
-import com.app.acmedelivery.domainModel.Product;
 import com.app.acmedelivery.domainModel.Store;
+import com.app.acmedelivery.domainModel.StoreCategory;
 import com.app.acmedelivery.repository.StoreRepository;
-import com.app.acmedelivery.service.BaseServiceImpl;
-import com.app.acmedelivery.service.StoreService;
 import lombok.RequiredArgsConstructor;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -25,10 +22,7 @@ public class StoreServiceImpl extends BaseServiceImpl<Store> implements StoreSer
         return storeRepository;
     }
 
-    public Store findByStoreName(final String storeName) {
 
-        return storeRepository.findByStoreName(storeName);
-    }
 
 
     @Override
@@ -42,11 +36,36 @@ public class StoreServiceImpl extends BaseServiceImpl<Store> implements StoreSer
     }
 
 
-	public List<Product> getCatalog(Store store){
-		Optional <List<Product>> catalog = Optional.ofNullable(store.getCatalog());
-		if (catalog.isPresent()){
-			return catalog.get();
+	public Store getLazy(Long id){
+		 Optional<Store> store = storeRepository.getLazy(id);
+		if (store.isPresent()){
+			return store.get();
 		}
-		throw new NoSuchElementException("Not available");
+		throw new NoSuchElementException(String.format("There was no store found matching id %d."));
+	}
+
+	@Override
+	public List<Store> findAll(){
+		 List<Store> find = storeRepository.findAll();
+		for (final Store store : find) {
+			store.setCatalog(null);
+		}
+		return find;
+	}
+
+	public Store findByName(String storeName){
+		Optional <Store> store = storeRepository.findByStoreName(storeName);
+		if (store.isPresent()){
+			return store.get();
+		}
+		throw new NoSuchElementException(String.format("There was no store found matching id %d."));
+	}
+
+	public Store findByCategory(StoreCategory storeCategory){
+		Optional <Store> store = storeRepository.findByStoreCategory(storeCategory);
+		if (store.isPresent()){
+			return store.get();
+		}
+		throw new NoSuchElementException(String.format("There was no store found matching id %d."));
 	}
 }
