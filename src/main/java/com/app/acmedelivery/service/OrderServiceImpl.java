@@ -29,6 +29,9 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         return Order.builder().account(account).store(store).orderItems(new ArrayList<>()).build();
     }
 
+
+	//add item must not be void, it has to return an order.
+	// Every time it must return a post request OR it must be implemented in the front end
     @Override
     public void addItem(Order order, Product product, int quantity){
         if(checkNullability(order, product)){
@@ -126,5 +129,11 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
     public List<Order> findBySubmitDate(final Date submitDate) {
         return null;
     }
+
+
+	public List<Order> findAll(){return orderRepository.findAll();}
+
+
+
 
 }
