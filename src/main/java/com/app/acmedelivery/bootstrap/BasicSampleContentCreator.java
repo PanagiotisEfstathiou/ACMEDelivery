@@ -145,8 +145,7 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
 
 		storeService.create(eatHindi);
 
-		Product product = Product.builder().name("Hamburger").price(BigDecimal.valueOf(2.95)).description("Με ζουμερό" +
-																												  " μπιφτέκι, pickle sauce, μουστάρδα & ketchup").productCategory(ProductCategory.BURGERS).build();
+
 		storeService.create(americanBurgers);
 
 		Account account = Account.builder().firstName("nick").lastName("Jones").mobilePhone("2322242411").address(
@@ -156,8 +155,8 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
 
 		List<OrderItem> orderItemList =
 				List.of(
-						OrderItem.builder().product(americanBurgersCatalog.get(1)).quantity(1).price(americanBurgersCatalog.get(1).getPrice()).build(),
-						OrderItem.builder().product(americanBurgersCatalog.get(2)).quantity(2).price(americanBurgersCatalog.get(2).getPrice()).build()
+						OrderItem.builder().product(americanBurgersCatalog.get(0)).quantity(1).price(americanBurgersCatalog.get(1).getPrice()).build(),
+						OrderItem.builder().product(americanBurgersCatalog.get(1)).quantity(2).price(americanBurgersCatalog.get(2).getPrice()).build()
 					   	);
 
 		Order order =
@@ -168,11 +167,6 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
 							 submitDate(new Date()).
 							 orderItems(orderItemList).build();
 
-//		Order order = orderService.initiateOrder(account,americanBurgers);
-//		orderService.addItem(order,Product.builder().name("Hamburger").price(BigDecimal.valueOf(2.95)).description(
-//				"Με ζουμερό μπιφτέκι, pickle sauce, μουστάρδα & ketchup").productCategory(ProductCategory.BURGERS).build(),1);
-//		orderService.checkout(order ,PaymentMethod.Cash);
-//
 
 		orderItemList.forEach(orderItem -> orderItem.setOrder(order));
 		order.setTotalPrice(orderService.calculateTotalPrice(orderItemList));
