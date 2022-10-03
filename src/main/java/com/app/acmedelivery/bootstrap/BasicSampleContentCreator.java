@@ -46,7 +46,7 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
         Store pizzaTower = Store.builder().
                 storeName("Tower of Pizza").
                 storeCategory(StoreCategory.PIZZA).
-                storeRegion("Athens").catalog(pizzaTowerCatalog).imgUrl("shorturl.at/nFJSY").
+                storeRegion("Athens").catalog(pizzaTowerCatalog).imgUrl("https://media-cdn.tripadvisor.com/media/photo-s/10/00/b6/f6/pizza-good-wine.jpg").
                 build();
 
         pizzaTowerCatalog.forEach(product -> product.setStore(pizzaTower));
@@ -72,7 +72,7 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
         Store suzySushi = Store.builder().
                         storeName("Suzy Sushi").
                         storeCategory(StoreCategory.SUSHI).
-                        storeRegion("Thessaloniki").catalog(suzySushiCatalog).imgUrl("shorturl.at/bnxY3").
+                        storeRegion("Thessaloniki").catalog(suzySushiCatalog).imgUrl("https://img.restaurantguru.com/r5a4-Sushi-Store-by-Katsura-sushi-2021-09.jpg").
                         build();
 
         suzySushiCatalog.forEach(product -> product.setStore(suzySushi));
@@ -96,7 +96,7 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
         Store americanBurgers = Store.builder().
                         storeName("American Burgers").
                         storeCategory(StoreCategory.BURGERS).
-                        storeRegion("Athens").catalog(americanBurgersCatalog).imgUrl("shorturl.at/hm048").
+                        storeRegion("Athens").catalog(americanBurgersCatalog).imgUrl("https://imageproxy.wolt.com/venue/5ec5163790d38c5d6404f948/04572dca-e736-11ec-992e-ce8fb7af3203_burger_house.png").
                         build();
 
 		americanBurgersCatalog.forEach(product -> product.setStore(americanBurgers));
@@ -119,8 +119,8 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
         Store morningGlory = Store.builder().
                         storeName("Morning Glory").
                         storeCategory(StoreCategory.BREAKFAST).
-                        storeRegion("Patra").catalog(morningGloryCatalog).
-                        build();
+                        storeRegion("Patra").catalog(morningGloryCatalog).imgUrl("https://rs-menus-api.roocdn.com/images/d71e7a6c-c766-4654-a07c-88dd59870e1f/image.jpeg?width=1200&height=630&auto=webp&format=jpg&fit=crop&v=")
+								  .build();
 
 		morningGloryCatalog.forEach(product -> product.setStore(morningGlory));
 
@@ -138,7 +138,7 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
         Store eatHindi = Store.builder().
                         storeName("eat Hindi").
                         storeCategory(StoreCategory.INDIAN).
-                        storeRegion("Victoria").catalog(hindiLoversCatalog).imgUrl("shorturl.at/irwX5").
+                        storeRegion("Victoria").catalog(hindiLoversCatalog).imgUrl("https://static.toiimg.com/photo/87282159.cms").
                         build();
 
 		hindiLoversCatalog.forEach(product -> product.setStore(eatHindi));
