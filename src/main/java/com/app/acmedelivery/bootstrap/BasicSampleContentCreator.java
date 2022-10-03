@@ -46,7 +46,7 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
         Store pizzaTower = Store.builder().
                 storeName("Tower of Pizza").
                 storeCategory(StoreCategory.PIZZA).
-                storeRegion("Athens").catalog(pizzaTowerCatalog).
+                storeRegion("Athens").catalog(pizzaTowerCatalog).imgUrl("shorturl.at/nFJSY").
                 build();
 
         pizzaTowerCatalog.forEach(product -> product.setStore(pizzaTower));
@@ -72,7 +72,7 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
         Store suzySushi = Store.builder().
                         storeName("Suzy Sushi").
                         storeCategory(StoreCategory.SUSHI).
-                        storeRegion("Thessaloniki").catalog(suzySushiCatalog).
+                        storeRegion("Thessaloniki").catalog(suzySushiCatalog).imgUrl("shorturl.at/bnxY3").
                         build();
 
         suzySushiCatalog.forEach(product -> product.setStore(suzySushi));
@@ -96,7 +96,7 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
         Store americanBurgers = Store.builder().
                         storeName("American Burgers").
                         storeCategory(StoreCategory.BURGERS).
-                        storeRegion("Athens").catalog(americanBurgersCatalog).
+                        storeRegion("Athens").catalog(americanBurgersCatalog).imgUrl("shorturl.at/hm048").
                         build();
 
 		americanBurgersCatalog.forEach(product -> product.setStore(americanBurgers));
@@ -138,7 +138,7 @@ public class BasicSampleContentCreator extends BaseComponent implements CommandL
         Store eatHindi = Store.builder().
                         storeName("eat Hindi").
                         storeCategory(StoreCategory.INDIAN).
-                        storeRegion("Victoria").catalog(hindiLoversCatalog).
+                        storeRegion("Victoria").catalog(hindiLoversCatalog).imgUrl("shorturl.at/irwX5").
                         build();
 
 		hindiLoversCatalog.forEach(product -> product.setStore(eatHindi));

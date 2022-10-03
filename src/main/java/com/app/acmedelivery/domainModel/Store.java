@@ -47,5 +47,8 @@ public class Store extends BaseModel {
 	@Column
 	@OneToMany(mappedBy = "store",fetch = FetchType.LAZY)
 	private List<Order> orders;
+	
+	@Column
+	private String imgUrl;
 
 }
