@@ -44,7 +44,7 @@ public class StoreController extends AbstractController<Store>{
 	}
 
 	@CrossOrigin(origins = "*")
-	@GetMapping("all")
+	@GetMapping("stores")
 	public List <Store> getStores(){
 		return this.storeService.findAll();
 	}
