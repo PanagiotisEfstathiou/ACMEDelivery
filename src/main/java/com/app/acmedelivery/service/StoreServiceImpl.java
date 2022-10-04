@@ -41,18 +41,14 @@ public class StoreServiceImpl extends BaseServiceImpl<Store> implements StoreSer
 	}
 
 	public Store findByName(String storeName){
-		Optional <Store> store = storeRepository.findByStoreName(storeName);
-		if (store.isPresent()){
-			return store.get();
-		}
-		throw new NoSuchElementException(String.format("There was no store found matching id %d."));
+		Store store = storeRepository.findByStoreName(storeName);
+			store.setCatalog(null);
+			return store;
 	}
 
 	public Store findByCategory(StoreCategory storeCategory){
-		Optional <Store> store = storeRepository.findByStoreCategory(storeCategory);
-		if (store.isPresent()){
-			return store.get();
-		}
-		throw new NoSuchElementException(String.format("There was no store found matching id %d."));
+		Store store = storeRepository.findByStoreCategory(storeCategory);
+			store.setCatalog(null);
+			return store;
 	}
 }
