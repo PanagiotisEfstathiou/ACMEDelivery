@@ -16,11 +16,11 @@ public interface StoreRepository extends JpaRepository<Store,Long> {
 
 	@Query("select o from Store o where o.storeName = :storeName")
 	@QueryHints(@QueryHint(name = org.hibernate.jpa.QueryHints.HINT_PASS_DISTINCT_THROUGH, value = "false"))
-	Optional<Store> findByStoreName(String storeName);
+	Store findByStoreName(String storeName);
 
 	@Query("select o from Store o where o.storeCategory = :storeCategory")
 	@QueryHints(@QueryHint(name = org.hibernate.jpa.QueryHints.HINT_PASS_DISTINCT_THROUGH, value = "false"))
-	Optional<Store> findByStoreCategory(StoreCategory storeCategory);
+	Store findByStoreCategory(StoreCategory storeCategory);
 
 	@Query("select o from Store o join fetch o.catalog where o.id = :id")
 	@QueryHints(@QueryHint(name = org.hibernate.jpa.QueryHints.HINT_PASS_DISTINCT_THROUGH, value = "false"))
