@@ -15,7 +15,7 @@ public interface OrderService extends  BaseService<Order>{
 
     Order initiateOrder(Account account , Store store);
 
-    void addItem(Order order, Product product, int quantity);
+    Order addItem(Order order, Product product, int quantity);
 
     void updateItem(Order order, Product product, int quantity);
 

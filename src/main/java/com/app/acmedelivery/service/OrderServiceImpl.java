@@ -33,10 +33,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
 	//add item must not be void, it has to return an order.
 	// Every time it must return a post request OR it must be implemented in the front end
     @Override
-    public void addItem(Order order, Product product, int quantity){
-        if(checkNullability(order, product)){
-            return;
-        }
+    public Order addItem(Order order, Product product, int quantity){
 
         boolean increasedQuantity = false;
 
@@ -52,8 +49,9 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         if (!increasedQuantity) {
             order.getOrderItems().add(newOrderItem(order, product, quantity, product.getPrice()));
         }
+		logger.debug("Product[{}] added to Order[{}]", product, order);
+		return order;
 
-        logger.debug("Product[{}] added to Order[{}]", product, order);
     }
 
     private boolean checkNullability(Order order, Product product) {
@@ -131,7 +129,8 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
     }
 
 
-	public List<Order> findAll(){return orderRepository.findAll();}
+	public List<Order> findAll(){
+		return orderRepository.findAll();}
 
 
 
